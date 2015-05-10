@@ -1,5 +1,5 @@
 {
-  "name": "Generatorify",
+  "name": "generatorify",
   "version": "1.0.0",
   "description": "Wrap function with callbacks to ES6 generator.",
   "main": "index.js",
