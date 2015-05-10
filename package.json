@@ -1,0 +1,21 @@
+{
+  "name": "Generatorify",
+  "version": "1.0.0",
+  "description": "Wrap function with callbacks to ES6 generator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/tap test/*.js"
+  },
+  "keywords": [
+    "generators",
+    "wrap",
+    "wrapper",
+    "callback"
+  ],
+  "author": "Slobodan Stojanovic",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.55.0",
+    "tap": "^1.0.2"
+  }
+}
