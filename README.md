@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/stojanovic/generatorify.svg?branch=master)](https://travis-ci.org/stojanovic/generatorify)
+
 # Generatorify
 
 Wrap function with callback into generator.
