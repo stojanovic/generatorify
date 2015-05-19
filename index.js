@@ -1,17 +1,7 @@
 'use strict'
 
-// Defer function using native promises
-const defer = function() {
-  let result = {}
-  result.promise = new Promise(function(resolve, reject) {
-    result.resolve = resolve
-    result.reject  = reject
-  })
-  return result
-}
-
 // Make callback function
-const prepareCallback = function(deferred, withoutErrorAttr) {
+const prepare = function(resolve, reject, withoutErrorAttr) {
 
   // By default start with a second attribute
   let base = 2
@@ -23,19 +13,19 @@ const prepareCallback = function(deferred, withoutErrorAttr) {
   return function () {
     // If node style function return an error
     if (arguments[0] && !withoutErrorAttr) {
-      deferred.reject(arguments[0])
+      reject(arguments[0])
     }
 
     else if (arguments.length < base) {
-      deferred.resolve()
+      resolve()
     }
 
     else if (arguments.length === base) {
-      deferred.resolve(arguments[--base])
+      resolve(arguments[--base])
     }
 
     else {
-      deferred.resolve(Array.prototype.slice.call(arguments, --base))
+      resolve(Array.prototype.slice.call(arguments, --base))
     }
   }
 }
@@ -43,11 +33,14 @@ const prepareCallback = function(deferred, withoutErrorAttr) {
 // Transform function with callback to generator
 const generatorify = module.exports = function(fn, context, withoutErrorAttr) {
   return function() {
-    const deferred = defer(),
-          callback = prepareCallback(deferred, withoutErrorAttr),
-          args     = Array.prototype.slice.call(arguments).concat(callback)
 
-    fn.apply(context, args)
-    return deferred.promise
-  };
+    let fnArgs = arguments
+
+    return new Promise(function(resolve, reject) {
+      let args     = Array.prototype.slice.call(fnArgs)
+                          .concat(prepare(resolve, reject, withoutErrorAttr))
+
+      return fn.apply(context, args)
+    })
+  }
 }
