@@ -1,3 +1,22 @@
 language: node_js
 node_js:
-  - iojs-v2.0.0
+- iojs-v2.0.2
+sudo: false
+cache:
+  directories:
+  - node_modules
+notifications:
+  email: false
+before_deploy:
+- npm config set spin false --global
+env:
+  global: GH_TOKEN=5e7d16b73c1d580c1ac4016b98d48b1ee2347bb8
+deploy:
+  provider: npm
+  email: slobodan@cloudhorizon.com
+  skip_cleanup: true
+  api_key:
+    secure: Mtas9cK2BOGl8jScnXQJvAxJrb3RkJPON7IMQWS0FXpzDwXs/rsi7BMd/gqEM3/xo4lpX0Bcqu2uZuZZjWD+XX7ND3wrqDtA5p/+83bcM9jBmj+Cnhbg3jmdpVR9MKmC45FQp/KzUq5fm85B17V+uz01TsKy3bxYDhwh6VYNUfE/X3FqRyJIiogFERbc9S89Of7G3/LzDiGiIu5tM64yzvLTn7oqkBOnFuoWOZATnTVQMrRxCo9YQCAkKQzWCg+0uRMuX/Fyv7Xgc3NwBquRfTDE89/Bg7qvGRX27Cku8/PgBictBD04lvaZD6DxsfhdcpaOHf/hqZUE+bSa3k1OgJZ9pstAW+wZnzS9klIe7p4j0nSDMbNYRYATgIPKdXG/OpGw702f+k3nyunC/V/qq9aSJmwUKZjTfS6T3lpMPwAklfyhOOrMlxxAjada2jHAETH/AuryegAw23ijifyq5S2va4XdL8dr76MFALzV6bGCriP0aePXiQUWXCeh/Toqt9a6bPjNnNi/4wQh8oSJU4vEzvIckm3Zu82gg4QnGLu8shr3wncz8Z3zQyisYZvCPbxUwhO3sFepYebyf+aQFlW+iGlPMh0f9hxtLfkcAzeDXA1aRNMaJltEgLZaTpVCp+Cble9d7do76L1CTo5siTg571zxp4xkjuiCEhyxbhw=
+  on:
+    branch: master
+    repo: stojanovic/generatorify
