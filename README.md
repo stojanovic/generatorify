@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/stojanovic/generatorify.svg?branch=master)](https://travis-ci.org/stojanovic/generatorify)
+[![Build Status](https://travis-ci.org/stojanovic/generatorify.svg?branch=master)](https://travis-ci.org/stojanovic/generatorify) [![npm version](https://badge.fury.io/js/generatorify.svg)](http://badge.fury.io/js/generatorify)
 
 # Generatorify
 
