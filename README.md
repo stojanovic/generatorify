@@ -30,12 +30,12 @@ const load = function* () {
 
 ```
 
+## Test
+
+`tap test/*.js`
+
 ## Limitations
 
 As mentioned above, this module requires io.js or node.js with `--harmony` flag.
 Also it works only with functions with one callback, if you have more than one,
 only one will be converted.
-
-## Test
-
-`tap test/*.js`
