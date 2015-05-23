@@ -2,8 +2,9 @@
 
 # Generatorify
 
-Wrap function with callback into generator.
-Based on this [gist](https://gist.github.com/yanatan16/8216252).
+Name is a bit misleading, this package wrap a function with callback into 
+native ES6 promise so it can be used with generators.
+Module is based on this [gist](https://gist.github.com/yanatan16/8216252).
 
 ## Prerequests
 
@@ -28,6 +29,12 @@ const load = function* () {
 }
 
 ```
+
+## Limitations
+
+As mentioned above, this module requires io.js or node.js with `--harmony` flag.
+Also it works only with functions with one callback, if you have more than one,
+only one will be converted.
 
 ## Test
 
